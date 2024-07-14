@@ -1,5 +1,5 @@
 <template>
-    <Icon icon='fe:facebook' class="facebook"/>
+    <Icon icon='fe:facebook' class="facebook icon"/>
 </template>
 
 <script setup>

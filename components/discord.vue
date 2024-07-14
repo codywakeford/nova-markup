@@ -1,5 +1,5 @@
 <template>
-    <Icon icon='ic:baseline-discord' class="discord"/>
+    <Icon icon='ic:baseline-discord' class="discord icon"/>
 </template>
 
 <script setup>

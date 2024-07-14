@@ -1,5 +1,5 @@
 <template>
-    <Icon icon='mdi:instagram' class="instagram"/>
+    <Icon icon='mdi:instagram' class="instagram icon"/>
 </template>
 
 <script setup>

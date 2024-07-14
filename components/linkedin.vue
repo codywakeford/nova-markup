@@ -1,5 +1,5 @@
 <template>
-    <Icon icon='ion:logo-linkedin' class="linkedin"/>
+    <Icon icon='ion:logo-linkedin' class="linkedin icon"/>
 </template>
 
 <script setup>

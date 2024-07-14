@@ -1,6 +1,6 @@
 <template>
     <nav class="trinav" ref="trinav">
-        <div ref="content" class="content">
+        <div ref="nav-content" class="content">
             <rflex v-for="(item, index) in slotItems" :class="getClass(index)" :key="index">
                 <component :is="item" />
             </rflex>
@@ -15,9 +15,7 @@ const trinav = ref(null)
 const content = ref(null)
 
 onMounted(() => {
-    if (slots.default) {
-        slotItems.value = slots.default()
-    }
+    slotItems.value = slots.default ? slots.default() : []
 
     const contentWidth = getComputedStyle(trinav.value).getPropertyValue('--content-width')
     content.value.style.maxWidth = contentWidth
@@ -38,7 +36,7 @@ function getClass(index) {
     width: 100%
     
     
-.content
+.nav-content
     display: flex
     align-items: center
     padding-block: 25px

@@ -1,7 +1,11 @@
 <template>
-    <rflex class="binav">     
-        <component :is="item" v-for="(item, index) in slotItems" :class="getClass(index)" :key="index" />
-    </rflex>
+    <div class="binav" ref="binav">   
+
+        <div class="nav-content" ref="content">
+            <component :is="item" v-for="(item, index) in slotItems" :class="getClass(index)" :key="index" />
+        </div>  
+
+    </div>
 </template>
 
 <script setup>
@@ -9,12 +13,14 @@ import { ref, onMounted, nextTick } from 'vue'
 
 const slots = useSlots()
 const slotItems = ref([])
+const content = ref(null)
+const binav = ref(null)
 
+onMounted(() => {
+    slotItems.value = slots.default ? slots.default() : []
 
-onMounted(async () => {
-    if (slots.default) {
-        slotItems.value = slots.default()
-    }
+    const contentWidth = getComputedStyle(binav.value).getPropertyValue('--content-width')
+    content.value.style.maxWidth = contentWidth  
 })
 
 function getClass(index) {
@@ -23,18 +29,29 @@ function getClass(index) {
         'right': index === 1,
     }
 }
+
 </script>
 
 <style scoped lang="sass">
 .binav
     display: flex
-    justify-content: space-between
-    padding-block: 25px
+    align-items: center
     user-select: none
+    width: 100%
+    
 
-    .left
-        justify-content: flex-start
-             
-    .right
-        justify-content: flex-end
+    .nav-content
+        display: flex
+        justify-content: space-between
+        align-items: center
+        // custom
+        max-width: 100%
+        width: 100%
+        margin-inline: auto
+
+        .left
+            justify-content: flex-start
+                
+        .right
+            justify-content: flex-end
 </style>

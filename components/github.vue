@@ -1,5 +1,7 @@
+
+
 <template>
-    <Icon icon='mdi:twitter' class="twitter icon"/>
+    <Icon icon='mdi:github' class="github icon"/>
 </template>
 
 <script setup>
@@ -7,9 +9,10 @@ import { Icon } from '@iconify/vue'
 </script>
 
 <style lang='sass' scoped>
-.twitter
+.github
     transition: 0.4s color
     cursor: pointer
+    
     &:hover
-        color: #1DA1F2
+        color: grey
 </style>
