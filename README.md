@@ -4,12 +4,22 @@ A Nuxt Powered HTML Framework
 
 ### Installation
 
-Import using nuxt extend in the nuxt.config.js
+Import using nuxt layers in the nuxt.config.js
+
+##### For version selection
 
 ```js
 export default defineNuxtConfig({
-    extends: "github:codywakeford/nova-markup",
+    extends: ["github:codywakeford/nova-markup#v0.1"],
 })
 ```
 
-This allows for nuxt component features out of the box.
+Use the format "github:codywakeford/nova-markup#<Tag/Version-Name>"
+
+###### Latest Version
+
+```js
+export default defineNuxtConfig({
+    extends: ["github:codywakeford/nova-markup"],
+})
+```
