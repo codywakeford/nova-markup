@@ -1,0 +1,300 @@
+{
+  "acc/duration": {
+    "type": "string"
+  },
+  "Acc/duration": {
+    "type": "string"
+  },
+  "acc/bezier": {
+    "type": "string"
+  },
+  "Acc/bezier": {
+    "type": "string"
+  },
+  "acc/trigger": {
+    "type": "string"
+  },
+  "Acc/trigger": {
+    "type": "string"
+  },
+  "anchor/type": {
+    "type": "string",
+    "description": "Allows a choice of styles"
+  },
+  "Anchor/type": {
+    "type": "string",
+    "description": "Allows a choice of styles"
+  },
+  "appear/direction": {
+    "type": "string",
+    "description": "The transition direction."
+  },
+  "Appear/direction": {
+    "type": "string",
+    "description": "The transition direction."
+  },
+  "appear/distance": {
+    "type": "string",
+    "description": "The transition distance."
+  },
+  "Appear/distance": {
+    "type": "string",
+    "description": "The transition distance."
+  },
+  "appear/duration": {
+    "type": "string",
+    "description": "The duration of the transition."
+  },
+  "Appear/duration": {
+    "type": "string",
+    "description": "The duration of the transition."
+  },
+  "appear/threshold": {
+    "type": "string",
+    "description": "Amount of the div that needs to be in the viewport to initiate the transition."
+  },
+  "Appear/threshold": {
+    "type": "string",
+    "description": "Amount of the div that needs to be in the viewport to initiate the transition."
+  },
+  "appear/delay": {
+    "type": "string",
+    "description": "The delay before starting the transition after the div threshold has been reached."
+  },
+  "Appear/delay": {
+    "type": "string",
+    "description": "The delay before starting the transition after the div threshold has been reached."
+  },
+  "bdrop/direction": {
+    "type": "string",
+    "options": [
+      "bottom",
+      "top",
+      "left",
+      "right"
+    ]
+  },
+  "Bdrop/direction": {
+    "type": "string",
+    "options": [
+      "bottom",
+      "top",
+      "left",
+      "right"
+    ]
+  },
+  "bdrop/activation": {
+    "type": "string",
+    "options": [
+      "click",
+      "hover"
+    ]
+  },
+  "Bdrop/activation": {
+    "type": "string",
+    "options": [
+      "click",
+      "hover"
+    ]
+  },
+  "btn/type": {
+    "type": "string"
+  },
+  "Btn/type": {
+    "type": "string"
+  },
+  "btn/toggle": {
+    "type": "string"
+  },
+  "Btn/toggle": {
+    "type": "string"
+  },
+  "card/type": {
+    "type": "string"
+  },
+  "Card/type": {
+    "type": "string"
+  },
+  "carousel-old/slideBy": {
+    "type": "string"
+  },
+  "CarouselOld/slideBy": {
+    "type": "string"
+  },
+  "carousel-old/itemsShown": {
+    "type": "string"
+  },
+  "CarouselOld/itemsShown": {
+    "type": "string"
+  },
+  "carousel-old/gap": {
+    "type": "string"
+  },
+  "CarouselOld/gap": {
+    "type": "string"
+  },
+  "carousel/slideBy": {
+    "type": "string|number"
+  },
+  "Carousel/slideBy": {
+    "type": "string|number"
+  },
+  "carousel/itemsShown": {
+    "type": "string"
+  },
+  "Carousel/itemsShown": {
+    "type": "string"
+  },
+  "carousel/buttons": {
+    "type": "string"
+  },
+  "Carousel/buttons": {
+    "type": "string"
+  },
+  "chip/type": {
+    "type": "string"
+  },
+  "Chip/type": {
+    "type": "string"
+  },
+  "cursor/type": {
+    "type": "string"
+  },
+  "Cursor/type": {
+    "type": "string"
+  },
+  "flareframe/gradient": {
+    "type": "string"
+  },
+  "Flareframe/gradient": {
+    "type": "string"
+  },
+  "flareframe/background": {
+    "type": "string"
+  },
+  "Flareframe/background": {
+    "type": "string"
+  },
+  "flareframe/thickness": {
+    "type": "string"
+  },
+  "Flareframe/thickness": {
+    "type": "string"
+  },
+  "infinite-column/duration": {
+    "type": "string"
+  },
+  "InfiniteColumn/duration": {
+    "type": "string"
+  },
+  "infinite-column/shadowColor": {
+    "type": "string"
+  },
+  "InfiniteColumn/shadowColor": {
+    "type": "string"
+  },
+  "infinite-column/direction": {
+    "type": "string"
+  },
+  "InfiniteColumn/direction": {
+    "type": "string"
+  },
+  "infinite-row/duration": {
+    "type": "string"
+  },
+  "InfiniteRow/duration": {
+    "type": "string"
+  },
+  "left-button/leftButton": {
+    "type": "string"
+  },
+  "LeftButton/leftButton": {
+    "type": "string"
+  },
+  "logo-rolls/speed": {
+    "type": "string"
+  },
+  "LogoRolls/speed": {
+    "type": "string"
+  },
+  "logo-rolls/direction": {
+    "type": "string",
+    "options": [
+      "up",
+      "down"
+    ]
+  },
+  "LogoRolls/direction": {
+    "type": "string",
+    "options": [
+      "up",
+      "down"
+    ]
+  },
+  "logo-rolls/gap": {
+    "type": "string"
+  },
+  "LogoRolls/gap": {
+    "type": "string"
+  },
+  "logo-rolls/height": {
+    "type": "string"
+  },
+  "LogoRolls/height": {
+    "type": "string"
+  },
+  "pages/itemsPerPage": {
+    "type": "string"
+  },
+  "Pages/itemsPerPage": {
+    "type": "string"
+  },
+  "right-button/rightButton": {
+    "type": "string"
+  },
+  "RightButton/rightButton": {
+    "type": "string"
+  },
+  "tabs/transition": {
+    "type": "string"
+  },
+  "Tabs/transition": {
+    "type": "string"
+  },
+  "tabs/duration": {
+    "type": "string"
+  },
+  "Tabs/duration": {
+    "type": "string"
+  },
+  "toggle/modelValue": {
+    "type": "boolean"
+  },
+  "Toggle/modelValue": {
+    "type": "boolean"
+  },
+  "typewriter-replace/speed": {
+    "type": "string"
+  },
+  "TypewriterReplace/speed": {
+    "type": "string"
+  },
+  "typewriter-replace/pause": {
+    "type": "string"
+  },
+  "TypewriterReplace/pause": {
+    "type": "string"
+  },
+  "typewriter/speed": {
+    "type": "string"
+  },
+  "Typewriter/speed": {
+    "type": "string"
+  },
+  "typewriter/delay": {
+    "type": "string"
+  },
+  "Typewriter/delay": {
+    "type": "string"
+  }
+}

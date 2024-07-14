@@ -1,0 +1,25 @@
+{
+    "name": "nuxt-app",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare",
+        "vetur": "vue-int --input components --output vetur --recursive"
+    },
+    "vetur": {
+        "tags": "vetur/tags.json",
+        "attributes": "vetur/attributes.json"
+    },
+    "dependencies": {
+        "@iconify/vue": "^4.1.2",
+        "nuxt": "^3.12.2",
+        "vue": "latest"
+    },
+    "devDependencies": {
+        "sass": "^1.77.7"
+    }
+}

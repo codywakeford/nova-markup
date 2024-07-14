@@ -1,0 +1,460 @@
+{
+    "acc": {
+        "attributes": ["duration", "bezier", "trigger"],
+        "description": ""
+    },
+    "Acc": {
+        "attributes": ["duration", "bezier", "trigger"],
+        "description": ""
+    },
+    "anchor": {
+        "attributes": ["type"],
+        "description": ""
+    },
+    "Anchor": {
+        "attributes": ["type"],
+        "description": ""
+    },
+    "appear": {
+        "attributes": ["direction", "distance", "duration", "threshold", "delay"],
+        "appear": {
+            "attributes": ["direction", "distance", "duration", "threshold", "delay"],
+            "description": [
+                "### **Fade in transition.**",
+                "",
+                "#### Props:",
+                "- `direction`: The transition direction.",
+                "   - ***String*** : [ top, bottom, right, left ]  ",
+                "&nbsp;&nbsp;&nbsp;&nbsp;",
+                "",
+                "- `distance`: The transition distance (default: `100px`).",
+                "",
+                "- `duration`: The duration of the transition (default: `1s`).",
+                "",
+                "- `threshold`: Amount of the div that needs to be in the viewport to initiate the transition (default: `0.5`).",
+                "",
+                "- `delay`: The delay before starting the transition after the div threshold has been reached (default: `0s`)."
+            ]
+        }
+    },
+    "Appear": {
+        "attributes": ["direction", "distance", "duration", "threshold", "delay"],
+        "description": ""
+    },
+    "bdrop": {
+        "attributes": ["direction", "activation"],
+        "description": ""
+    },
+    "Bdrop": {
+        "attributes": ["direction", "activation"],
+        "description": ""
+    },
+    "binav": {
+        "attributes": [],
+        "description": ""
+    },
+    "Binav": {
+        "attributes": [],
+        "description": ""
+    },
+    "btn": {
+        "attributes": ["type", "toggle"],
+        "description": ""
+    },
+    "Btn": {
+        "attributes": ["type", "toggle"],
+        "description": ""
+    },
+    "burger": {
+        "attributes": [],
+        "description": ""
+    },
+    "Burger": {
+        "attributes": [],
+        "description": ""
+    },
+    "card": {
+        "attributes": ["type"],
+        "description": ""
+    },
+    "Card": {
+        "attributes": ["type"],
+        "description": ""
+    },
+    "cardgrid": {
+        "attributes": [],
+        "description": ""
+    },
+    "Cardgrid": {
+        "attributes": [],
+        "description": ""
+    },
+    "carousel-old": {
+        "attributes": ["slideBy", "itemsShown", "gap"],
+        "description": ""
+    },
+    "CarouselOld": {
+        "attributes": ["slideBy", "itemsShown", "gap"],
+        "description": ""
+    },
+    "carousel": {
+        "attributes": ["slideBy", "itemsShown", "buttons"],
+        "description": ""
+    },
+    "Carousel": {
+        "attributes": ["slideBy", "itemsShown", "buttons"],
+        "description": ""
+    },
+    "cflex": {
+        "attributes": [],
+        "description": ""
+    },
+    "Cflex": {
+        "attributes": [],
+        "description": ""
+    },
+    "chip": {
+        "attributes": ["type"],
+        "description": ""
+    },
+    "Chip": {
+        "attributes": ["type"],
+        "description": ""
+    },
+    "chips": {
+        "attributes": [],
+        "description": ""
+    },
+    "Chips": {
+        "attributes": [],
+        "description": ""
+    },
+    "cursor": {
+        "attributes": ["type"],
+        "description": ""
+    },
+    "Cursor": {
+        "attributes": ["type"],
+        "description": ""
+    },
+    "discord": {
+        "attributes": [],
+        "description": ""
+    },
+    "Discord": {
+        "attributes": [],
+        "description": ""
+    },
+    "facebook": {
+        "attributes": [],
+        "description": ""
+    },
+    "Facebook": {
+        "attributes": [],
+        "description": ""
+    },
+    "flareframe": {
+        "attributes": ["gradient", "background", "thickness"],
+        "description": ""
+    },
+    "Flareframe": {
+        "attributes": ["gradient", "background", "thickness"],
+        "description": ""
+    },
+    "grabscroll": {
+        "attributes": [],
+        "description": ""
+    },
+    "Grabscroll": {
+        "attributes": [],
+        "description": ""
+    },
+    "infinite-column": {
+        "attributes": ["duration", "shadowColor", "direction"],
+        "description": ""
+    },
+    "InfiniteColumn": {
+        "attributes": ["duration", "shadowColor", "direction"],
+        "description": ""
+    },
+    "infinite-row": {
+        "attributes": ["duration"],
+        "description": ""
+    },
+    "InfiniteRow": {
+        "attributes": ["duration"],
+        "description": ""
+    },
+    "instagram": {
+        "attributes": [],
+        "description": ""
+    },
+    "Instagram": {
+        "attributes": [],
+        "description": ""
+    },
+    "lchips": {
+        "attributes": [],
+        "description": ""
+    },
+    "Lchips": {
+        "attributes": [],
+        "description": ""
+    },
+    "left-button": {
+        "attributes": ["leftButton"],
+        "description": ""
+    },
+    "LeftButton": {
+        "attributes": ["leftButton"],
+        "description": ""
+    },
+    "lheader": {
+        "attributes": [],
+        "description": ""
+    },
+    "Lheader": {
+        "attributes": [],
+        "description": ""
+    },
+    "lighthouse-circle": {
+        "attributes": [],
+        "description": ""
+    },
+    "LighthouseCircle": {
+        "attributes": [],
+        "description": ""
+    },
+    "linkedin": {
+        "attributes": [],
+        "description": ""
+    },
+    "Linkedin": {
+        "attributes": [],
+        "description": ""
+    },
+    "loader": {
+        "attributes": [],
+        "description": ""
+    },
+    "Loader": {
+        "attributes": [],
+        "description": ""
+    },
+    "logo-rolls": {
+        "attributes": ["speed", "direction", "gap", "height"],
+        "description": ""
+    },
+    "LogoRolls": {
+        "attributes": ["speed", "direction", "gap", "height"],
+        "description": ""
+    },
+    "mflex": {
+        "attributes": [],
+        "description": ""
+    },
+    "Mflex": {
+        "attributes": [],
+        "description": ""
+    },
+    "mheader": {
+        "attributes": [],
+        "description": ""
+    },
+    "Mheader": {
+        "attributes": [],
+        "description": ""
+    },
+    "mnav": {
+        "attributes": [],
+        "description": ""
+    },
+    "Mnav": {
+        "attributes": [],
+        "description": ""
+    },
+    "modal": {
+        "attributes": [],
+        "description": ""
+    },
+    "Modal": {
+        "attributes": [],
+        "description": ""
+    },
+    "mpage": {
+        "attributes": [],
+        "description": ""
+    },
+    "Mpage": {
+        "attributes": [],
+        "description": ""
+    },
+    "p-1": {
+        "attributes": [],
+        "description": ""
+    },
+    "P1": {
+        "attributes": [],
+        "description": ""
+    },
+    "p-2": {
+        "attributes": [],
+        "description": ""
+    },
+    "P2": {
+        "attributes": [],
+        "description": ""
+    },
+    "p-3": {
+        "attributes": [],
+        "description": ""
+    },
+    "P3": {
+        "attributes": [],
+        "description": ""
+    },
+    "p-4": {
+        "attributes": [],
+        "description": ""
+    },
+    "P4": {
+        "attributes": [],
+        "description": ""
+    },
+    "p-5": {
+        "attributes": [],
+        "description": ""
+    },
+    "P5": {
+        "attributes": [],
+        "description": ""
+    },
+    "p-6": {
+        "attributes": [],
+        "description": ""
+    },
+    "P6": {
+        "attributes": [],
+        "description": ""
+    },
+    "p-7": {
+        "attributes": [],
+        "description": ""
+    },
+    "P7": {
+        "attributes": [],
+        "description": ""
+    },
+    "p-8": {
+        "attributes": [],
+        "description": ""
+    },
+    "P8": {
+        "attributes": [],
+        "description": ""
+    },
+    "pages": {
+        "attributes": ["itemsPerPage"],
+        "description": ""
+    },
+    "Pages": {
+        "attributes": ["itemsPerPage"],
+        "description": ""
+    },
+    "rchips": {
+        "attributes": [],
+        "description": ""
+    },
+    "Rchips": {
+        "attributes": [],
+        "description": ""
+    },
+    "rflex": {
+        "attributes": [],
+        "description": ""
+    },
+    "Rflex": {
+        "attributes": [],
+        "description": ""
+    },
+    "rheader": {
+        "attributes": [],
+        "description": ""
+    },
+    "Rheader": {
+        "attributes": [],
+        "description": ""
+    },
+    "right-button": {
+        "attributes": ["rightButton"],
+        "description": ""
+    },
+    "RightButton": {
+        "attributes": ["rightButton"],
+        "description": ""
+    },
+    "splitrow": {
+        "attributes": [],
+        "description": ""
+    },
+    "Splitrow": {
+        "attributes": [],
+        "description": ""
+    },
+    "tab": {
+        "attributes": [],
+        "description": ""
+    },
+    "Tab": {
+        "attributes": [],
+        "description": ""
+    },
+    "tabs": {
+        "attributes": ["transition", "duration"],
+        "description": ""
+    },
+    "Tabs": {
+        "attributes": ["transition", "duration"],
+        "description": ""
+    },
+    "toggle": {
+        "attributes": ["modelValue"],
+        "description": ""
+    },
+    "Toggle": {
+        "attributes": ["modelValue"],
+        "description": ""
+    },
+    "trinav": {
+        "attributes": [],
+        "description": ""
+    },
+    "Trinav": {
+        "attributes": [],
+        "description": ""
+    },
+    "twitter": {
+        "attributes": [],
+        "description": ""
+    },
+    "Twitter": {
+        "attributes": [],
+        "description": ""
+    },
+    "typewriter-replace": {
+        "attributes": ["speed", "pause"],
+        "description": ""
+    },
+    "TypewriterReplace": {
+        "attributes": ["speed", "pause"],
+        "description": ""
+    },
+    "typewriter": {
+        "attributes": ["speed", "delay"],
+        "description": ""
+    },
+    "Typewriter": {
+        "attributes": ["speed", "delay"],
+        "description": ""
+    }
+}
