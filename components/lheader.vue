@@ -1,61 +1,50 @@
 <template>
-    <header class="lheader" ref="lheader">
+    <header class="lheader" :class="{ 'broken': aboveBreakpoint }">
         <slot />
     </header>
 </template>
 
-<style scoped lang="sass">
-header
-    display: flex
-    flex-direction: column
-
-    gap: 25px
-    text-align: left
-    margin-block: 50px
-
-.mobile-layout
-    align-items: center
-    text-align: center
-</style>
-
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue"
+const aboveBreakpoint = ref(false)
 
-const lheader = ref(null)
-const minWidth = ref(0)
-const mobileLayout = ref(false)
+const props = defineProps({
+    breakpoint: {
+        type: String,
+        default: "768px"
+    },
 
-function getWidth() {
-    if (lheader.value) {
-        const minWidthStr = window.getComputedStyle(lheader.value).minWidth
+})
 
-        if (minWidthStr) {
-            minWidth.value = parseInt(minWidthStr, 10)
-        }
-    }
+const updateBreakpoint = (event) => {
+    aboveBreakpoint.value = !event.matches
 }
 
-function setLayout() {
-    if (!lheader.value || !minWidth.value) {
-        return
-    }
+const setBreakpointListener = () => {
+    const mediaQueryList = window.matchMedia(`(max-width: ${props.breakpoint})`)
+    updateBreakpoint(mediaQueryList) 
 
-    if (window.innerWidth <= minWidth.value) {
-        mobileLayout.value = true
-        lheader.value.style.minWidth = "0"
-    } else if (window.innerWidth >= minWidth.value) {
-        mobileLayout.value = false
-        lheader.value.style.minWidth = `${minWidth.value}px` // Use px here
-    }
+    mediaQueryList.addEventListener('change', updateBreakpoint)
+
+    onUnmounted(() => {
+        mediaQueryList.removeEventListener('change', updateBreakpoint)
+    })
 }
 
 onMounted(() => {
-    getWidth()
-    setLayout()
-    window.addEventListener("resize", setLayout)
-})
-
-onBeforeUnmount(() => {
-    window.removeEventListener("resize", setLayout)
+    setBreakpointListener()
 })
 </script>
+
+
+<style scoped lang="sass">
+.lheader
+    display: flex
+    flex-direction: column
+    align-items: center
+    margin-block: 50px
+    text-align: center
+
+    &.broken  
+        align-items: flex-start
+        text-align: left
+</style>

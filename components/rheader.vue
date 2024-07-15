@@ -1,57 +1,53 @@
 <template>
-    <header class="rheader" ref="rheader" :class="{ 'mobile-layout': mobileLayout}">
+    <header class="rheader" ref="rheader" :class="{ 'broken': aboveBreakpoint }">
         <slot />
     </header>
 </template>
+
+
+<script setup>
+const rheader = ref(null)
+const aboveBreakpoint = ref(null)
+
+const props = defineProps({
+    breakpoint: {
+        type: String, 
+        default: "768px"
+    }
+})
+
+
+
+const updateBreakpoint = (event) => {
+    aboveBreakpoint.value = !event.matches
+}
+
+const setBreakpointListener = () => {
+    const mediaQueryList = window.matchMedia(`(max-width: ${props.breakpoint})`)
+    updateBreakpoint(mediaQueryList) 
+
+    mediaQueryList.addEventListener('change', updateBreakpoint)
+
+    onUnmounted(() => {
+        mediaQueryList.removeEventListener('change', updateBreakpoint)
+    })
+}
+
+onMounted(() => {
+    setBreakpointListener()
+})
+
+</script>
 
 <style scoped lang="sass">
 .rheader
     display: flex
     flex-direction: column
-    align-items: flex-end
-    gap: 15px
-
-    text-align: right
-
-    margin-block: 50px
-    max-width: 750px
-    margin-inline: auto
-
-.mobile-layout
     align-items: center
+    margin-block: 50px
     text-align: center
+
+    &.broken  
+        align-items: flex-end
+        text-align: right
 </style>
-
-<script setup>
-const rheader = ref(null)
-const minWidth = ref(0)
-const mobileLayout = ref(false)
-
-function getWidth() {
-    if (rheader.value) {
-        const minWidthStr = window.getComputedStyle(rheader.value).minWidth;
-        if (minWidthStr) {
-            minWidth.value = parseInt(minWidthStr, 10);
-        }
-    }
-}
-function setLayout() {
-    if (window.innerWidth <= minWidth.value) {
-        mobileLayout.value = true
-        rheader.value.style.minWidth = "0"
-    } else {
-        mobileLayout.value = false
-        rheader.value.style.minWidth = minWidth.value
-    }
-}
-
-onMounted(() => {
-    getWidth()
-    setLayout()
-    window.addEventListener('resize', setLayout)
-})
-
-onBeforeUnmount(() => {
-    window.removeEventListener("resize", setLayout)
-})
-</script>

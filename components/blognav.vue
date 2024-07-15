@@ -2,7 +2,7 @@
     <div class="blognav-container" ref="container">
         <div class="blognav" ref="blognav">
             
-                <a class="header" v-for="header in headers" :class="{'active-header' : activeHeaderIds.includes(header.id) }" :href='`#${header.id}`'>{{ header.innerText }}</a>
+            <a class="header" v-for="header in headers" :class="{'active-header' : activeHeaderIds.includes(header.id) }" :href='`#${header.id}`'>{{ header.innerText }}</a>
             
         </div>
     </div>
@@ -13,6 +13,15 @@ const headers = ref([])
 const container = ref(null)
 const blognav = ref(null)
 const activeHeaderIds = ref([])
+
+const props = defineProps({
+    pickupOffset: {
+        type: String,
+        default: "100"
+    }
+})
+
+
 
 onMounted(async () => {
 
@@ -58,17 +67,24 @@ function initObservers() {
 function stickyHandling() {
     if (!container.value || !blognav.value) return
 
+
     const containerRect = container.value.getBoundingClientRect()
     const stickyRect = blognav.value.getBoundingClientRect()
 
-    if (window.scrollY > containerRect.top && window.scrollY < (containerRect.bottom - stickyRect.height)) {
+    if (containerRect.top - props.pickupOffset  < 0 && window.scrollY - ( stickyRect.height / 2 ) < (containerRect.height - props.pickupOffset)) {
         blognav.value.style.position = 'fixed'
-        blognav.value.style.top = '25px'
-
-    } else if (window.scrollY <= containerRect.top) { 
+        blognav.value.style.top = `${props.pickupOffset}px`
+        blognav.value.style.bottom = 'auto'
+    } else if (window.scrollY  >= (containerRect.height - stickyRect.height)) {
         blognav.value.style.position = 'absolute'
-        blognav.value.style.top = '0px'
+        blognav.value.style.top = 'auto'
+        blognav.value.style.bottom = 0
+    } else {
+        blognav.value.style.position = 'absolute'
+        blognav.value.style.top = '0'
+        blognav.value.style.bottom = 'auto' 
     }
+
 }
 
 </script>

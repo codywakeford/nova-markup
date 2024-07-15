@@ -5,7 +5,6 @@
 </template>
 
 <script setup>
-
 const t = ref(null)
 
 const sizes = [
@@ -26,7 +25,6 @@ function updateSize() {
     const computedStyle = window.getComputedStyle(t.value)
     const size = computedStyle.getPropertyValue('--size').trim()
     t.value.style.fontSize = sizes[size]
-
 }
 
 onMounted(() => {
@@ -35,5 +33,4 @@ onMounted(() => {
 </script>
 
 <style lang="sass" scoped>
-
 </style>
