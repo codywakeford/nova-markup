@@ -10,16 +10,13 @@ Import using nuxt layers in the nuxt.config.js
 
 ```js
 export default defineNuxtConfig({
-    extends: ["github:codywakeford/nova-markup#v0.1"],
-})
-```
-
-Use the format "github:codywakeford/nova-markup#<Tag/Version-Name>"
-
-###### Latest Version
-
-```js
-export default defineNuxtConfig({
-    extends: ["github:codywakeford/nova-markup"],
+    extends: [
+        "github:username/repoName", // GitHub Remote Source
+        "github:username/repoName/base", // GitHub Remote Source within /base directory
+        "github:username/repoName#dev", // GitHub Remote Source from dev branch
+        "github:username/repoName#v1.0.0", // GitHub Remote Source from v1.0.0 tag
+        "gitlab:username/repoName", // GitLab Remote Source example
+        "bitbucket:username/repoName", // Bitbucket Remote Source example
+    ],
 })
 ```
