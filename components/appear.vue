@@ -16,7 +16,7 @@
             '--delay': state.overriddenDelay,
             '--distance': state.overriddenDistance,
         }"
-    >/* ... */
+    >
     
         <slot />
     </div>
@@ -24,7 +24,7 @@
 
 <script setup>
 import { ref, reactive, onMounted } from "vue"
-import { getCustomProperty } from "../custom-css.js"
+import { getCustomProperty } from "./custom-css.js"
 
 const appear = ref(null)
 

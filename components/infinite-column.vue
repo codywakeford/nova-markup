@@ -41,7 +41,9 @@ onMounted(() => {
 const scrollOneId = computed(() => (props.direction === 'down' ? 'scroll-reverse-one' : 'scroll-one'))
 const scrollTwoId = computed(() => (props.direction === 'down' ? 'scroll-reverse-two' : 'scroll-two'))
 
-
+watch(slots.default, () => {
+    slotItems.value = slots.default ? slots.default() : []
+}, { immediate: true })
 </script>
 
 <style lang="sass" scoped>

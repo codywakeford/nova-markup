@@ -1,8 +1,31 @@
 <template>
-    <div class="loader"></div>
+    <div class="loader" :class="type"></div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+const props = defineProps({
+    type: {
+        type: String,
+        default: "default"
+    },
+    width: {
+        type: String,
+        default: "24px"
+    },
+    weight: {
+        type: String,
+        default: "2px"
+    },
+    color: {
+        type: String,
+        defualt: "black"
+    },
+    duration: {
+        type: String,
+        default: "1s"
+    }
+})
+
 
 </script>
 
@@ -24,14 +47,14 @@
 
                 
     &.default 
-        width: 48px
-        height: 48px
-        border: 5px solid #FFF
+        width: v-bind(width)
+        height: v-bind(width)
+        border: v-bind(weight) solid v-bind(color)
         border-bottom-color: transparent
         border-radius: 50%
         display: inline-block
         box-sizing: border-box
-        animation: rotation 1s linear infinite
+        animation: rotation v-bind(duration) linear infinite
     
         @keyframes rotation 
             0% 

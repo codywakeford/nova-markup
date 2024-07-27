@@ -17,3 +17,13 @@ header
     max-width: 750px
     margin-inline: auto
 </style>
+
+<script>
+/**
+ * This is my well documented component
+ */
+export default {};
+</script>
+<script setup>
+// your code
+</script>

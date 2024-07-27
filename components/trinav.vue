@@ -1,6 +1,6 @@
 <template>
     <nav class="trinav" ref="trinav">
-        <div ref="nav-content" class="content">
+        <div ref="content" class="nav-content">
             <rflex v-for="(item, index) in slotItems" :class="getClass(index)" :key="index">
                 <component :is="item" />
             </rflex>

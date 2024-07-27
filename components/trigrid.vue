@@ -1,18 +1,16 @@
 <template>
-    <div class="bigrid" :class="{'broken' : aboveBreakpoint}" >
+    <div class="trigrid" id="trigrid" ref="trigrid" :class="{'broken' : aboveBreakpoint}" >
 
-        <slot v-for="(item, index) in slotItems" 
-            :name="item.name" 
-            :class="getClass(index)">
-        </slot>
+        <component v-for="(item, index) in slotItems" :is="item" :class="getClass(index)"/>
 
     </div>
 </template>
 
 <script setup>
 const slots = useSlots()
+const slotItems = ref([])
 const aboveBreakpoint = ref(false)
-const slotItems = ref(Object.keys(slots).map(name => ({ name })))
+const trigrid = ref(null)
 
 const props = defineProps({
     breakpoint: {
@@ -24,7 +22,8 @@ const props = defineProps({
 const getClass = (index) => {
     return {
         'first': index == 0,
-        'second' : index == 1
+        'second': index == 1,
+        'third' : index == 2
     }
 }
 
@@ -34,28 +33,30 @@ const updateBreakpoint = (event) => {
 
 const setBreakpointListener = () => {
     const mediaQueryList = window.matchMedia(`(max-width: ${props.breakpoint})`)
-    updateBreakpoint(mediaQueryList)
+    updateBreakpoint(mediaQueryList) // Initialize the value
 
     mediaQueryList.addEventListener('change', updateBreakpoint)
 
+    // Cleanup listener on component unmount
     onUnmounted(() => {
         mediaQueryList.removeEventListener('change', updateBreakpoint)
     })
 }
 
 onMounted(() => {
+    slotItems.value = slots.default ? slots.default() : []
     setBreakpointListener()
 })
 
 </script>
 
 <style lang='sass' scoped>
-.bigrid
+.trigrid
     display: grid
     grid-template-rows: 1fr 
 
     &.broken
         grid-template-rows: 1fr
-        grid-template-columns: 1fr 1fr
+        grid-template-columns: 1fr 1fr 1fr
 
 </style>

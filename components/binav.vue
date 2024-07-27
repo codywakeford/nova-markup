@@ -9,7 +9,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted, nextTick } from 'vue'
 
 const slots = useSlots()
 const slotItems = ref([])
@@ -39,11 +38,12 @@ function getClass(index) {
     user-select: none
     width: 100%
     
-
     .nav-content
         display: flex
         justify-content: space-between
         align-items: center
+        padding-inline: 50px
+
         // custom
         max-width: 100%
         width: 100%

@@ -1,5 +1,5 @@
 <template>
-    <div class="burger" @click="toggleActive" :class="{ 'active': active }">
+    <div class="burger" @click="handleClick" :class="{ 'active': active }" >
         <span></span>
         <span></span>
         <span></span>
@@ -9,41 +9,78 @@
 <script setup>
 const active = ref(false)
 
+const props = defineProps({
+    color: {
+        type: String,
+        default: "black"
+    },
+    width: {
+        type: String,
+        default: "24px"
+    },
+    weight: {
+        type: String,
+        default: "2px"
+    },
+    duration: {
+        type: String,
+        default: "0.3s"
+    },
+    manualToggle: {
+        type: String,
+        default: "false"
+    }
+})
+function handleClick() {
+    if (props.manualToggle) {
+        return
+    }
+    toggleActive()
+}
 function toggleActive() {
+
     active.value = !active.value
 }
+defineExpose({
+    toggleActive
+})
+
 </script>
 
 <style lang='sass' scoped>
 .burger
     position: relative
-    width: 20px
-    height: 18px 
+    width: v-bind(width)
+    height: v-bind(width)
     user-select: none
     cursor: pointer
+    margin: 10px
 
 span
     position: absolute
     left: 0
-    background: white
-    height: 3px
-    width: 25px
+    background: v-bind(color)
+    height: v-bind(weight)
+    width: v-bind(width)
     border-radius: 2px
 
     &:nth-child(1)
-        top: 0px
-        transition: 0.4s rotate
+        top: calc(0px + 10%)
+        left: -20%
+        transition: v-bind(duration) rotate
         transform-origin: top right
         rotate: 0deg
 
     &:nth-child(2)
+        left: -20%
         transform-origin: right
-        transition: 0.2s transform
-        top: 8px 
+        transition: calc(v-bind(duration) / 2) transform
+        top: calc((v-bind(width) / 3) + 10%)
 
     &:nth-child(3)
-        top: 16px 
-        transition: 0.4s rotate
+        left: -20%
+        top: calc((v-bind(width) / 3 * 2) + 10%)
+        transition: v-bind(duration) rotate
         transform-origin: bottom right
         rotate: 0deg
 

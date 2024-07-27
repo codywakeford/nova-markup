@@ -50,6 +50,11 @@ function handleMouseLeave() {
 onMounted(() => {
     slotItems.value = slots.default ? slots.default() : []
 })
+
+watch(slots.default, () => {
+    slotItems.value = slots.default ? slots.default() : []
+}, { immediate: true })
+
 </script>
 
 <style scoped lang="sass">

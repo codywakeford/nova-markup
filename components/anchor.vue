@@ -1,33 +1,21 @@
 <template>
-    <a :class="type" class="anchor" ref="anchor">
+    <nuxt-link :class="type" class="anchor">
         <slot />
-    </a>
+    </nuxt-link>
 </template>
 
 
 <script setup>
-import { addValueAsClass } from './custom-css.js'
-const anchor = ref(null)
-const attrs = useAttrs()
-
 const props = defineProps({
-    /** Allows a choice of styles */
-    type: String,
-})
-
-function initCustomCss() {
-    addValueAsClass(anchor, '--effect', anchor)
-    const value = getComputedStyle(anchor.value)
-}
-
-onMounted(() => {
-    initCustomCss()
+    type: {
+        type: String,
+        default: ""
+    }
 })
 
 </script>
 
 <style scoped lang="sass">
-
 .anchor
     color: inherit
     text-decoration: none

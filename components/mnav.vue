@@ -1,27 +1,22 @@
 <template>
 
-    <div class="mnav" ref="mnav" :style="{'--duration': duration, '--slide': slide }" >
-        <component :is="item" v-for="(item, index) in filter('div')" :key="index" :class="getClass(index)" @click="toggleNav(index)" />
+    <div class="mnav">
+        
+        <component :is="item" v-for="(item, index) in filterOut('aside')" :key="index" :class="getClass(index)" @click="toggleNav(index)" />
     
 
-        <div class="aside-box" ref="asideRef" :class="direction" @click="toggleNav(1)">
-            <component :is="item" v-for="(item, index) in filter('aside')" :key="index"/>
+        <div class="aside-box"  ref="asideRef" :class="[direction, {'active': navActive}]" @click="toggleNav(1)">
+            <component 
+                :is="item" 
+                v-for="(item, index) in filter('aside')" 
+                :key="index"/>
         </div>
+
     </div>
 
 </template>
 
-<script setup>
-import { addValueAsClass } from './custom-css';
-const asideRef = ref(null)
-const mnav = ref(null)
-
-const slots = useSlots()
-const slotItems = ref([])
-
-let duration2 = ref("0.5s")
-let slide = ref('ease') 
-
+<script setup lang="ts">
 const props = defineProps({
     direction: {
         type: String,
@@ -30,45 +25,52 @@ const props = defineProps({
     duration: {
         type: String,
         default: "0.3s"
+    },
+    bezier: {
+        type: String,
+        default: "ease-in-out"
     }
 })
 
-function initCustomCss() {
-    addValueAsClass(mnav, '--aside', asideRef)
-    duration2 = getComputedStyle(mnav.value).getPropertyValue('--duration')
-    slide = getComputedStyle(mnav.value).getPropertyValue('--slide')
-}
+const emit = defineEmits<{
+    (event: 'navigation-toggled'): void
+}>()
 
-onMounted(() => {
-    initCustomCss()
+const asideRef = ref<HTMLElement | null>(null)
+const navActive = ref(false)
+const slotItems = ref<VNode[]>([])
+const slots = useSlots()
 
-    if (slots.default) {
-        slotItems.value = slots.default()
-    }  
-})
-
-function filter(tag) {
+function filter(tag: string): VNode[] {
     return slotItems.value.filter(item => item.type === tag)
 }
 
-function getClass(index) {
+function filterOut(tag: string): VNode[] {
+    return slotItems.value.filter(item => item.type !== tag)
+}
+
+function getClass(index: number): Record<string, boolean> {
     return {
         'left': index === 0,
         'right': index === 1,
     }
 }
 
-function toggleNav(index) {
-    if (index != 1) {
+function toggleNav(index: number): void {
+    if (index !== 1) {
         return
-    } 
-    if (asideRef.value.classList.contains('active')) {
-        asideRef.value.classList.remove('active')
-    } else {
-        asideRef.value.classList.add('active')
     }
+    navActive.value = !navActive.value
+    emit('navigation-toggled')
 }
 
+onMounted(() => {
+    slotItems.value = slots.default ? slots.default() : []
+})
+
+// watch(slots.default, () => {
+//     slotItems.value = slots.default ? slots.default() : []
+// }, { immediate: true })
 </script>
 
 
@@ -82,15 +84,12 @@ function toggleNav(index) {
 
 .aside-box
     position: fixed
-    height: 100%
-    width: 100%
-    
 
     &.left
         top: 0
         left: -100%
         bottom: 0
-        transition: left var(--duration) var(--slide)
+        transition: left v-bind(duration) v-bind(bezier)
 
         &.active
             left: 0  
@@ -99,7 +98,7 @@ function toggleNav(index) {
         top: 0
         right: -100%
         bottom: 0
-        transition: right var(--duration) var(--slide)
+        transition: right v-bind(duration) v-bind(bezier)
 
         &.active
             right: 0  
@@ -108,7 +107,7 @@ function toggleNav(index) {
         top: -100%
         right: 0
         left: 0
-        transition: top var(--duration) var(--slide)
+        transition: top v-bind(duration) v-bind(bezier)
 
         &.active
             top: 0  
@@ -117,7 +116,7 @@ function toggleNav(index) {
         bottom: -100%
         right: 0
         left: 0
-        transition: bottom var(--duration) var(--slide)
+        transition: bottom v-bind(duration) v-bind(bezier)
 
         &.active
             bottom: 0  

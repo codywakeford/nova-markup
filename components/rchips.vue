@@ -11,13 +11,12 @@
 const slots = useSlots()
 const slotItems = ref([])
 
-const attrs = useAttrs()
-const reference = ref(null)
-
 onMounted(() => {
     slotItems.value = slots.default ? slots.default() : []
 })
-
+watch(slots.default, () => {
+    slotItems.value = slots.default ? slots.default() : []
+}, { immediate: true })
 </script>
 
 <style lang='sass' scoped>

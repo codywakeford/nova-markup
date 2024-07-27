@@ -59,6 +59,11 @@ onMounted(() => {
 function toggleAccordion() {
     content.value.classList.toggle("active")
 }
+
+watch(slots.default, () => {
+    slotItems.value = slots.default ? slots.default() : []
+}, { immediate: true })      
+
 </script>
 
 <style lang="sass" scoped>
