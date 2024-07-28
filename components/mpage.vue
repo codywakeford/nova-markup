@@ -5,7 +5,7 @@
 </template>
 
 <style lang='sass' scoped>
-.mpage 
+.mpage
     max-width: 1600px
     width: 100%
     margin-inline: auto

@@ -10,9 +10,11 @@ const aboveBreakpoint = ref(false)
 const props = defineProps({
     breakpoint: {
         type: String,
-        default: "768px"
     },
-
+    breakTo: {
+        type: String,
+        default: "left"
+    }
 })
 
 const updateBreakpoint = (event) => {
@@ -20,6 +22,9 @@ const updateBreakpoint = (event) => {
 }
 
 const setBreakpointListener = () => {
+    if (!props.breakpoint) {
+        return
+    }
     const mediaQueryList = window.matchMedia(`(max-width: ${props.breakpoint})`)
     updateBreakpoint(mediaQueryList) 
 
@@ -28,7 +33,20 @@ const setBreakpointListener = () => {
     onUnmounted(() => {
         mediaQueryList.removeEventListener('change', updateBreakpoint)
     })
+
 }
+const alignItemsComputed = computed(() => {
+    switch (props.breakTo) {
+        case 'left':
+            return 'flex-start'
+        case 'center':
+            return 'center'
+        case 'right':
+            return 'flex-end'
+        default:
+            return 'left' // Default to left if an unknown value is passed
+    }
+})
 
 onMounted(() => {
     setBreakpointListener()
@@ -40,11 +58,12 @@ onMounted(() => {
 .lheader
     display: flex
     flex-direction: column
-    align-items: center
-    margin-block: 50px
-    text-align: center
+    align-items: flex-start
+    text-align: left
+    transition: all 0.2s
 
     &.broken  
-        align-items: flex-start
-        text-align: left
+        
+        align-items: v-bind(alignItemsComputed)
+        text-align: v-bind(breakTo)
 </style>
