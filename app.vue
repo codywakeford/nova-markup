@@ -1,15 +1,15 @@
 <template>
-   <mheader>
-       
-   </mheader>
+    <main>
+
+        
+
+    </main>
 </template>
 
-<script setup lang="ts">
+<script setup>
 
 </script>
 
 <style lang='sass' scoped>
-main
-    height: 100vh
 
 </style>

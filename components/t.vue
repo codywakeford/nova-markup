@@ -20,11 +20,10 @@ const sizes = [
   "clamp(2.5rem, .4545vw + 2.4091rem, 2.75rem)",
   "clamp(2.75rem, .4545vw + 2.6591rem, 3rem)",
 ];
-
 function updateSize() {
   if (t.value) {
     const computedStyle = window.getComputedStyle(t.value);
-    const size = computedStyle.getPropertyValue('--size').trim();
+    const size = computedStyle.getPropertyValue('--text-size').trim();
     const index = parseInt(size, 10);
     if (!isNaN(index) && sizes[index]) {
       t.value.style.fontSize = sizes[index];
@@ -32,28 +31,31 @@ function updateSize() {
   }
 }
 
+let animationFrameId: number;
+
+function watchCustomProperty() {
+  updateSize();  // Check and update size
+
+  // Continue watching
+  animationFrameId = requestAnimationFrame(watchCustomProperty);
+}
+
 onMounted(() => {
-  updateSize();
-
-  const observer = new MutationObserver(() => {
-    updateSize();
-  });
-
   if (t.value) {
-    observer.observe(t.value, {
-      attributes: true,
-      attributeFilter: ['style'],
-    })
+    // Start watching the custom property
+    watchCustomProperty();
   }
+});
 
-  onBeforeUnmount(() => {
-    observer.disconnect();
-  })
-})
+onBeforeUnmount(() => {
+  // Stop watching the custom property
+  if (animationFrameId) {
+    cancelAnimationFrame(animationFrameId);
+  }
+});
 </script>
 
 <style lang="sass" scoped>
-.t
-  font-size: var(--size, 1rem)
+@import '../dest/something.css'
 </style>
 

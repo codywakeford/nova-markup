@@ -33,7 +33,6 @@ const props = defineProps({
     display: flex
     align-items: center
     gap: 8px
-    width: min-content
     white-space: nowrap
     user-select: none
     cursor: pointer
